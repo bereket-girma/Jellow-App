@@ -15,7 +15,7 @@ export function Board() {
       </div>
       <div className={styles.boardContent}>
         <p className={styles.boardTitle}>Test Title</p>
-        <div className={styles.boardAddList}>+ Add a List</div>
+        <div className={styles.boardAddList}><span className={styles.addListSpan}>+</span> Add a List</div>
       </div>
     </div>
 

@@ -71,3 +71,7 @@ body, html {
   background: #E6CB60;
   border: solid 1px #ADAEAB;
 }
+
+.addListSpan {
+  font-size: 20px;
+}
