@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Rancho&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100vh;
+  width: 100%;
+}
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /* grid-gap: 0px; */
+  height: 100vh;
+}
+h1 {
+  font-family: "Rancho";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  padding-top: 15%;
+  padding-bottom: 4%;
+}
+.logoutContainer {
+  background-color: #e7d279;
+  width: 90%;
+}
+
+.form {
+  background-color: white;
+  width: 70%;
+  margin: 20px auto;
+  height: 50vh;
+}
+h3 {
+  padding-top: 40px;
+  padding-bottom: 35px;
+  color: #545955;
+}
+form {
+  display: inline-grid;
+}
+
+input {
+  width: 285px;
+  padding: 10px;
+  outline: none;
+  margin: 12px 0;
+}
+.textInput {
+    border: 0.5px solid #EBEBEB;
+}
+
+.submit {
+    color: #fff;
+    background-color: #8FBD63;
+    border: none;
+}
+
+.svgContainer {
+  background-color: #f7f7f7;
+}
