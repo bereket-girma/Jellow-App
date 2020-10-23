@@ -8,8 +8,16 @@ export function Column() {
 
 
   return (
-    <div className="column-container">
-
+    <div className={styles.columnContainer}>
+      <div className={styles.columnHeader}>
+        <textarea className={styles.columnTitle}></textarea>
+        <div className={styles.columnDots}>...</div>
+      </div>
+      <div className={styles.columnFooter}>
+        <div className={styles.columnAddCard}>
+          <span>+</span> Add a card</div>
+        <div className={styles.columnAddTemplate}></div>
+      </div>
     </div>
 
 
