@@ -2,6 +2,7 @@ import React from "react"
 import logo from "./logo.svg"
 import { Counter } from "./features/counter/Counter"
 import { Column } from './features/column/Column';
+import { Logout } from './features/Logout/Logout';
 import { Board } from './features/board/Board';
 import "./App.css"
 import {
