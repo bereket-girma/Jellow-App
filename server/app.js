@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const authRoutes = require("./routes/auth");
 const knex = require("./dbConnect");
+
 const jwtMiddleware = require("express-jwt");
 const jwtToken = require("jsonwebtoken");
 require("dotenv").config();

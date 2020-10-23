@@ -65,3 +65,10 @@
 //   INNER JOIN columns ON projects.id=columns.project_id
 //   LEFT JOIN cards ON columns.id=cards.column_id
 //     WHERE projects.id=1;
+
+
+
+// SELECT * FROM projects
+// INNER JOIN columns ON projects.id = columns.project_id
+// LEFT JOIN cards ON columns.id = cards.column_id
+// WHERE projects.id = 1;

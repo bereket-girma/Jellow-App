@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const knex = require("../db.js");
+const knex = require("../dbConnect.js");
 
 // GET request for  columns
 router.get("/columns", async (req, res) => {
