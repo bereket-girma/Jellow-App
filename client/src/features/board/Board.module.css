@@ -1,0 +1,77 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100vh;
+}
+
+.boardContainer {
+  width: 100%;
+  height: 100vh;
+}
+
+.boardHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  background: #459E98;
+  font-family: 'Rancho';
+  font-size: 48px;
+  color: white;
+  position: relative;
+}
+
+.logOutBtn {
+  padding: 17px 25px;
+  position: absolute;
+  right: 80px;
+  background: #E6CB60;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  font-size: 20px;
+}
+
+.avatar {
+  position: absolute;
+  right: 10px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background: #C4C4C4;
+}
+
+.boardContent {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+.boardTitle {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.boardAddList {
+  text-align: center;
+  width: 10%;
+  margin-left: 5px;
+  padding: 15px;
+  background: #E6CB60;
+  border: solid 1px #ADAEAB;
+}
+
+.addListSpan {
+  font-size: 20px;
+}
