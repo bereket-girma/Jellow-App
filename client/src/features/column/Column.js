@@ -16,7 +16,9 @@ export function Column() {
       <div className={styles.columnFooter}>
         <div className={styles.columnAddCard}>
           <span>+</span> Add a card</div>
-        <div className={styles.columnAddTemplate}></div>
+        <div className={styles.columnAddTemplate}>
+        <span><i class="fas fa-credit-card fa-sm"></i></span>
+        </div>
       </div>
     </div>
 
