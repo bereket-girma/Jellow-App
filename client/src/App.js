@@ -31,7 +31,7 @@ function Login() {
   function handle(e) {
     e.preventDefault()
     login("testuser", "testpassword").then((resp) => {
-      history.push("/about")
+      history.push("/about ")
     })
   }
   return (
