@@ -34,11 +34,34 @@
 // VALUES ('bereket_girma', 'password3', 'password4');
 // INSERT INTO users (username, password, salt)
 // VALUES ('will_stoddard', 'password5', 'password6');
-// -- INSERTS FOR PROJECTS_USERS --
+// -- INSERTS FOR PROJECTS--
+// insert into projects (id, title) 
+//values (1, 'test projects');
+
+//-- INSERTS FOR columns --
+//insert into columns (id, title, project_id)
+//values (1, 'test column', 1)
+
+// inserts for cards
+
+//alter table
+//insert into cards (id, column_id, description, title)
+//values (4, 1, 'test card', 'test card title');
+
+//insert into cards (id, column_id, description, title)
+//values (4, 1, 'test card', 'test card title');
+
+
+//INSERTS FOR PROJECTS_Users--
 // INSERT INTO projects_users (project_id, user_id)
 // VALUES (1, 1);
 
 
 
 
+//GET requests
 
+// SELECT * FROM projects
+//   INNER JOIN columns ON projects.id=columns.project_id
+//   LEFT JOIN cards ON columns.id=cards.column_id
+//     WHERE projects.id=1;
