@@ -21,7 +21,25 @@ export function Card() {
             <div className={styles.cardAddMembers}><span>+</span></div>
           </div>
         </div>
-      <div className={styles.cardSidebar}></div>
+        <div className={styles.cardDescription}>
+          <p className={styles.cardDescriptionHeader}>
+            <span classname={styles.cardDescriptionIcon}><i class="fas fa-bars"></i></span>
+            Description
+          </p>
+          
+          <textarea placeholder="Add a more detailed description..." className={styles.cardDescriptionText}></textarea>
+        </div>
+        
+        <div className={styles.cardFooter}>
+          <button>Save</button>
+          <div className={styles.cardFooterDelete}>x</div>
+        </div>
+        
+      <div  className={styles.cardSidebar}>
+        <p className={styles.cardSidebarHeader}>Add to card</p>
+        <div className={styles.cardSidebarMembers}>
+          <span className={styles.cardSidebarIcon}><i class="far fa-user fa-sm"></i></span> Members</div>
+      </div>
       </div>
       </div>
     

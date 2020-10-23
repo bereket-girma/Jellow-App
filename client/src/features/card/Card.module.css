@@ -79,7 +79,7 @@ html, body {
 .cardContent {
   padding: 0 8px 8px 16px;
   min-height: 300px;
-  width: 70%;
+  width: 75%;
   /* border: solid 1px black; */
   left: 0;
 }
@@ -98,10 +98,16 @@ html, body {
   padding-bottom: 15px;
   border-radius: 50%;
   background: #EBECEF;
+  margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .cardAddMembers span {
   margin-bottom: 5px;
+}
+
+.cardAddMembers:hover {
+  background: #E2E4E9;
 }
 
 .cardSidebar {
@@ -110,10 +116,107 @@ html, body {
   flex-direction: column;
   align-self: stretch;
   height: 100%;
-  width: 30%;
+  width: 25%;
   position: absolute;
   right: 0;
   top: 0;
   padding-top: 80px;
   /* border: solid 1px black; */
+}
+
+.cardSidebarHeader {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.cardSidebarMembers {
+  width: 90%;
+  padding: 7px;
+  background: #EBECEF;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.cardSidebarMembers:hover {
+  background: #E2E4E9;
+}
+
+.cardSidebarIcon {
+  margin-right: 5px;
+}
+
+.cardDescription {
+  position: relative;
+  margin-left: 40px;
+}
+
+.cardDescriptionHeader {
+  
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.cardDescriptionHeader span {
+  position: absolute;
+  left: -35px;
+}
+
+.cardDescription textarea {
+  background: #EBECEF;
+  resize: none;
+  width: 100%;
+  padding-left: 10px;
+  padding-top: 10px;
+  border: none;
+}
+
+.cardDescription textarea::placeholder {
+  color: #2B3957;
+}
+
+.cardDescription textarea:hover {
+  background: #E2E4E9;
+}
+
+.cardFooterContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.cardFooter {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  height: 50px;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+.cardFooter button {
+  background: #8FBD63;
+  padding: 5px 20px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  height: 40px;
+}
+
+.cardFooterDelete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  border: solid 3px #666666;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  color: #666666;
 }
