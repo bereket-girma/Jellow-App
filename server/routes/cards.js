@@ -26,9 +26,9 @@ router.post("/cards", async (req, res) => {
 // PATCH request for cards
 router.patch("/cards/:id", (req, res) => {
   const { id } = req.params;
-  const { description } = req.body;
+  const { description, title } = req.body;
   knex
-    .raw(`UPDATE cards SET description=? WHERE id =?`, [description, id])
+    .raw(`UPDATE cards SET description=?, title=? WHERE id =?`, [description, title, id])
     .then((result) => {
       res.json(result.rows);
     });

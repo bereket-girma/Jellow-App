@@ -1,17 +1,45 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Column.module.css';
+import { useSelector, useDispatch } from 'react-redux'
+import { Card } from '../card/Card'
+import { updateColumns,
+  selectColumns,
+  selectCards,
+  selectBoard,
+  getBoard,
+  getColumns,
+  getCards,
+  addColumn,
+  addCard,
+  removeColumn,
+  removeCard,
+  updateColumn,
+  updateCard } from '../board/boardSlice'
 
 
 
-export function Column() {
+export function Column(props) {
+  const [columnTitle, setColumnTitle] = useState('')
+  const cards = useSelector(selectCards)
+  const dispatch = useDispatch()
 
-
+  useEffect(() => {
+    dispatch(getCards())
+  }, [])
 
   return (
     <div className={styles.columnContainer}>
       <div className={styles.columnHeader}>
-        <textarea className={styles.columnTitle}></textarea>
+        <textarea 
+        onChange={(e) => setColumnTitle(e.target.value)}
+        onSubmit={() => dispatch(updateColumns(columnTitle))}
+              className={styles.columnTitle}>{props.title}</textarea>
         <div className={styles.columnDots}>...</div>
+      </div>
+      <div className={styles.mappedCard}>
+        {cards.map((card) => (
+          <div className={styles.cardTitleDiv}>{card.title}</div>
+        ))}
       </div>
       <div className={styles.columnFooter}>
         <div className={styles.columnAddCard}>
