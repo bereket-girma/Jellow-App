@@ -3,6 +3,7 @@ const router = express.Router()
 const conn = require("../dbConnect")
 const sha512 = require("js-sha512")
 const jwt = require("jsonwebtoken")
+const knex = require("../dbConnect")
 
 // could also use a library this is just an example
 function createSalt(len = 20) {
@@ -39,26 +40,41 @@ router.post("/registration", async (req, res) => {
 })
 
 router.post("/login", async (req, res, next) => {
-  const { username, password } = req.body
-  const checkIfUserExistsSql = `SELECT * FROM users WHERE username = ?;`
-  const hasAUser = await conn.raw(checkIfUserExistsSql, [username])
-  const userExists = hasAUser.rows.length
-  if (!userExists) {
-    res.status(400).json({ message: "invalid username or password" })
-  } else {
-    const user = hasAUser.rows[0]
-    const hashedPassword = sha512(password + user.salt)
-    if (hashedPassword === user.password) {
-      // generate a token based on server secret for client to use to authenticate
-      const token = jwt.sign(
-        { id: user.id, username: user.username },
-        process.env.SECRET
-      )
-      res.status(200).json({ token: token })
-    } else {
+  console.log("working", req.body)
+  try {
+    const { username, password } = req.body
+    const checkIfUserExistsSql = `SELECT * FROM users WHERE username = ?;`
+    const hasAUser = await conn.raw(checkIfUserExistsSql, [username])
+    const userExists = hasAUser.rows.length
+    if (!userExists) {
       res.status(400).json({ message: "invalid username or password" })
+    } else {
+      const user = hasAUser.rows[0]
+      const hashedPassword = sha512(password + user.salt)
+      console.log(hashedPassword, sha512(user.password + user.salt))
+      if (hashedPassword === sha512(user.password + user.salt)) {
+        // generate a token based on server secret for client to use to authenticate
+        const token = jwt.sign(
+          { id: user.id, username: user.username },
+          process.env.SECRET
+        )
+        res.status(200).json({ token: token })
+      } else {
+        res.status(400).json({ message: "invalid username or password" })
+      }
     }
+  } catch (error) {
+    console.log("Login error:", error)
   }
+})
+
+router.get("/users", async (req, res) => {
+  const displayProjects = `
+    SELECT * FROM users
+  `
+
+  const jelloApp = await knex.raw(displayProjects)
+  res.json(jelloApp.rows)
 })
 
 module.exports = router
