@@ -45,13 +45,13 @@ export const getBoard = () => (dispatch) => {
 // POST REQUESTS
 export const addColumn = (obj) => (dispatch) => {
   axios.post("/api/columns", { title: obj }).then((r) => {
-    dispatch(getBoard())
+    dispatch(getColumns())
   })
 }
 
 export const addCard = (description, column_id) => (dispatch) => {
   axios.post("/api/cards", { description: description, column_id: column_id }).then((r) => {
-    dispatch(getBoard())
+    dispatch(getCards())
   })
 }
 
@@ -59,13 +59,13 @@ export const addCard = (description, column_id) => (dispatch) => {
 
 export const removeColumn = (id) => (dispatch) => {
   axios.delete("/api/columns/" + id).then((r) => {
-    dispatch(getBoard())
+    dispatch(getColumns())
   })
 }
 
 export const removeCard = (id) => (dispatch) => {
   axios.delete("/api/cards/" + id).then((r) => {
-    dispatch(getBoard())
+    dispatch(getCards())
   })
 }
 
@@ -73,13 +73,13 @@ export const removeCard = (id) => (dispatch) => {
 
 export const updateColumns = (obj) => (dispatch) => {
   axios.patch('/api/columns/' + obj.id, {title: obj.title}).then((r) => {
-    dispatch(getBoard())
+    dispatch(getColumns())
   })
 }
 
 export const updateCard = (obj) => (dispatch) => {
   axios.patch('/api/cards/' + obj.id, {title: obj.title, description: obj.description, column_id: obj.column_id}).then((r) => {
-    dispatch(getBoard())
+    dispatch(getCards())
   })
 }
 

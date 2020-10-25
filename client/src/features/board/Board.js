@@ -25,9 +25,13 @@ export function Board() {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    dispatch(getBoard())
     dispatch(getColumns())
-  }, [dispatch])
-  console.log(columns)
+  }, [])
+  
+  function handleDelete(item) {
+    dispatch(removeColumn(item.id))
+  }
 
   return (
 
@@ -38,13 +42,16 @@ export function Board() {
       </div>
       <div className={styles.boardContent}>
         <p className={styles.boardTitle}>Test Title</p>
-        <div 
+        <button
         className={styles.boardAddList}
-        onClick={() => dispatch(addColumn())}><span className={styles.addListSpan}>+</span> Add a List</div>
+        onClick={(e) => dispatch(addColumn(e.target.value))}><span className={styles.addListSpan}>+</span> Add a List</button>
       </div>
       <div className={styles.boardColumns}>
       {columns.map((column) => (
+        <div className={styles.mappedColumnDiv}>
         <Column title={column.title}/>
+        <button className={styles.mappedColumnDivButton} onClick={() => handleDelete(column)}>x</button>
+        </div>
       ))}
       </div>
     </div>
