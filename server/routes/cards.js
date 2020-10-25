@@ -12,11 +12,12 @@ router.get("/cards", async (req, res) => {
 
 // POST request for cards
 router.post("/cards", async (req, res) => {
-  const { description, column_id } = req.body;
+  const { description, column_id, title } = req.body;
   knex
-    .raw(`INSERT INTO cards (description, column_id) VALUES(?, ?)`, [
+    .raw(`INSERT INTO cards (description, column_id, title) VALUES(?, ?, ?)`, [
       description,
       column_id,
+      title,
     ])
     .then((result) => {
       res.json(result.rows);

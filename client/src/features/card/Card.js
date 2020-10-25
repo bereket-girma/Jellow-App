@@ -1,12 +1,35 @@
 import React, { useState } from "react"
 import styles from "./Card.module.css"
+import { useSelector } from 'react-redux'
+import { updateColumns,
+  selectColumns,
+  selectCards,
+  selectBoard,
+  getBoard,
+  getColumns,
+  getCards,
+  addColumn,
+  addCard,
+  removeColumn,
+  removeCard,
+  updateColumn,
+  updateCard } from '../board/boardSlice'
+
+
+
 
 export function Card() {
+  const cards = useSelector(selectCards)
+
   return (
+    <div>
+      {cards.map((card) => (
+
+      
     <div className={styles.cardContainer}>
       <div className={styles.cardDeleteBtn}>x</div>
       <div className={styles.cardHeader}>
-        <h3 className={styles.cardTitle}>Test Card</h3>
+        <h3 className={styles.cardTitle}>{card.title}</h3>
         <span className={styles.cardIcon}><i class="fas fa-credit-card"></i></span>
         <div className={styles.cardHeaderInList}>
           <p>in list
@@ -27,7 +50,9 @@ export function Card() {
             Description
           </p>
           
-          <textarea placeholder="Add a more detailed description..." className={styles.cardDescriptionText}></textarea>
+          <textarea placeholder="Add a more detailed description..." 
+                    value={card.description}
+                    className={styles.cardDescriptionText}></textarea>
         </div>
         
         <div className={styles.cardFooter}>
@@ -42,6 +67,7 @@ export function Card() {
       </div>
       </div>
       </div>
-    
+      ))}
+    </div>
   )
 }

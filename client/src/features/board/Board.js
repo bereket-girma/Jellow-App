@@ -41,7 +41,10 @@ export function Board() {
         <div className={styles.avatar}></div>
       </div>
       <div className={styles.boardContent}>
-        <p className={styles.boardTitle}>Test Title</p>
+        {board.map((project) => (
+          <p className={styles.boardTitle}>{project.title}</p>
+        ))}
+        
         <button
         className={styles.boardAddList}
         onClick={(e) => dispatch(addColumn(e.target.value))}><span className={styles.addListSpan}>+</span> Add a List</button>

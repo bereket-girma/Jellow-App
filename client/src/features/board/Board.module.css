@@ -16,6 +16,7 @@ body, html {
 .boardContainer {
   width: 100%;
   height: 100vh;
+  position: relative;
 }
 
 .boardHeader {
@@ -28,7 +29,7 @@ body, html {
   font-family: 'Rancho';
   font-size: 48px;
   color: white;
-  position: relative;
+  /* position: relative; */
 }
 
 .logOutBtn {
@@ -82,14 +83,17 @@ body, html {
 
 .mappedColumnDiv {
   width: 21%;
-  position: relative;
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
 }
 
 .mappedColumnDivButton {
-  position: absolute;
+  /* position: absolute;
   right: 0;
-  bottom: 7px;
+  bottom: 7px; */
   padding: 3px 10px;
   border-radius: 50%;
   font-size: 20px;
+  width: 30px;
 }

@@ -15,6 +15,7 @@ import { updateColumns,
   removeCard,
   updateColumn,
   updateCard } from '../board/boardSlice'
+import Axios from 'axios';
 
 
 
@@ -32,10 +33,26 @@ export function Column(props) {
     dispatch(removeCard(item.id))
   }
 
+  function handleSubmit(e) {
+    e.preventDefault()
+    addCard("test", 1)
+  }
+
+  const [activeCard, setActiveCard] = useState(null)
+  console.log(activeCard)
+
   return (
+    <div>
+    {activeCard ? (
+      <div onClick={() => setActiveCard(null)}
+           className={styles.cardModal}>
+        <Card />
+      </div>
+    ) : null}
     <div className={styles.columnContainer}>
       <div className={styles.columnHeader}>
         <textarea 
+        value={props.title}
         onChange={(e) => setColumnTitle(e.target.value)}
         onSubmit={() => dispatch(updateColumns(columnTitle))}
         className={styles.columnTitle}>{props.title}</textarea>
@@ -43,7 +60,8 @@ export function Column(props) {
       </div>
       <div className={styles.mappedCard}>
         {cards.map((card) => (
-          <div className={styles.mappedCardContainer}>
+          <div onClick={() => setActiveCard(card)}
+               className={styles.mappedCardContainer}>
           <div className={styles.cardTitleDiv}>{card.title}</div>
           <button 
           onClick={() => handleDelete(card)}
@@ -61,7 +79,7 @@ export function Column(props) {
         {/* </div> */}
       </div>
     </div>
-
+  </div>
 
   )
 
