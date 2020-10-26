@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import styles from "./Logout.module.css";
 
-export function Logout() {
+export default function Logout() {
   return (
     <div className={styles.container}>
       <div className={styles.logoutContainer}>
@@ -14,7 +14,7 @@ export function Logout() {
           <form>
             <input className={styles.textInput} type="text" placeholder="Enter email" />
             <input className={styles.textInput} type="text" placeholder="Enter password" />
-            <input className={styles.submit} type="submit" value="Login" />
+            <button className={styles.submit} type="submit" value="Login">Login</button>
           </form>
           </div>
         </div>
